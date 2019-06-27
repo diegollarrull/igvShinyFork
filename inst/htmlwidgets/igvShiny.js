@@ -360,3 +360,35 @@ Shiny.addCustomMessageHandler("loadVcfTrack",
 
 );
 //------------------------------------------------------------------------------------------------------------------------
+Shiny.addCustomMessageHandler("loadBamTrack",
+
+   function(message){
+
+      console.log("=== loadBamTrack");
+      var trackName = message.trackName;
+      var bamFile = message.bamDataFilepath;
+      var baiFile = message.baiDataFilepath;
+
+      var config = {format: "bam",
+                     name: trackName,
+                     url: bamFile,
+                     indexURL: baiFile,
+                     displayMode: "EXPANDED",
+                     sourceType: "file",
+                     height: 100,
+                     visibilityWindow: 1000000,
+                     //homvarColor: homvarColor,
+                     //hetvarColor: hetvarColor,
+                     //homrefColor: homrefColor,
+                     //color: locationColor,
+                     type: "alignment"
+                    };
+
+
+       window.igvBrowser.loadTrack(config);
+       }
+
+
+);
+//------------------------------------------------------------------------------------------------------------------------
+
