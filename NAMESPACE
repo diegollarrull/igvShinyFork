@@ -1,13 +1,14 @@
 export(
    igvShinyFork,
    igvShinyForkOutput,
-   renderIgvShiny,
+   renderIgvShinyFork,
    showGenomicRegion,
    getGenomicRegion,
    loadBedTrack,
    loadBedGraphTrack,
    loadSegTrack,
    loadVcfTrack,
+   loadBamTrack,
    removeTracksByName,
    removeUserAddedTracks,
    redrawIgvWidget
