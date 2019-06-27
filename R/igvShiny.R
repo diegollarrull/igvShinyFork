@@ -192,7 +192,7 @@ loadBamTrack <- function(session, trackName, bamData, baiData, deleteTracksOfSam
    state[["userAddedTracks"]] <- unique(c(state[["userAddedTracks"]], trackName))
    
    
-   message <- list(trackName=trackName, bamFilepath=bamData, baiFilePath=baiData)
+   message <- list(trackName=trackName, bamFilePath=bamData, baiFilePath=baiData)
    session$sendCustomMessage("loadBamTrack", message)
    
 } # loadBamTrack

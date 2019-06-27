@@ -366,17 +366,21 @@ Shiny.addCustomMessageHandler("loadBamTrack",
 
       console.log("=== loadBamTrack");
       var trackName = message.trackName;
-      var bamFile = message.bamDataFilepath;
-      var baiFile = message.baiDataFilepath;
+      var bamFile = message.bamFilePath;
+      var baiFile = message.baiFilePath;
+
+      console.log("trackName: " + trackName);
+      console.log("bamFile: " + bamFile);
+      console.log("baiFile: " + baiFile);
 
       var config = {format: "bam",
                      name: trackName,
                      url: bamFile,
                      indexURL: baiFile,
-                     displayMode: "EXPANDED",
-                     sourceType: "file",
-                     height: 100,
-                     visibilityWindow: 1000000,
+                     //displayMode: "EXPANDED",
+                     //sourceType: "file",
+                     //height: 100,
+                     //visibilityWindow: 1000000,
                      //homvarColor: homvarColor,
                      //hetvarColor: hetvarColor,
                      //homrefColor: homrefColor,
