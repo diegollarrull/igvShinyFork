@@ -1,5 +1,5 @@
 library(RUnit)
-library(igvShinyFork)
+library(igvShiny)
 #------------------------------------------------------------------------------------------------------------------------
 runTests <- function()
 {
@@ -10,7 +10,7 @@ runTests <- function()
 test_constructor <- function()
 {
    printf("--- test_constructor")
-   x <- igvShinyFork("hello planet")
+   x <- igvShiny("hello planet")
 
 } # test_constructor
 #------------------------------------------------------------------------------------------------------------------------

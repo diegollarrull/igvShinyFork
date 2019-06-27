@@ -1,7 +1,7 @@
 export(
-   igvShinyFork,
-   igvShinyForkOutput,
-   renderIgvShinyFork,
+   igvShiny,
+   igvShinyOutput,
+   renderIgvShiny,
    showGenomicRegion,
    getGenomicRegion,
    loadBedTrack,

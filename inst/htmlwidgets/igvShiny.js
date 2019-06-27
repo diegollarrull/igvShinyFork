@@ -1,6 +1,6 @@
 HTMLWidgets.widget({
 
-  name: 'igvShinyFork',
+  name: 'igvShiny',
   type: 'output',
 
   factory: function(el, width, height) {
@@ -9,7 +9,7 @@ HTMLWidgets.widget({
 
     return {
       renderValue: function(options) {
-          console.log("---- ~/github/igvShinyFork/inst/htmlwidgets, renderValue");
+          console.log("---- ~/github/igvShiny/inst/htmlwidgets, renderValue");
           console.log("     el: ");
           console.log(el);
           console.log("igv.js renderValue, wh: " + width + ", " + height)

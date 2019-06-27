@@ -5,38 +5,38 @@ library(VariantAnnotation)
 state <- new.env(parent=emptyenv())
 state[["userAddedTracks"]] <- list()
 #----------------------------------------------------------------------------------------------------
-igvShinyFork <- function(options, width = NULL, height = NULL, elementId = NULL, displayMode="squished")
+igvShiny <- function(options, width = NULL, height = NULL, elementId = NULL, displayMode="squished")
 {
   supportedOptions <- c("genomeName", "initialLocus")
   stopifnot(all(supportedOptions %in% names(options)))
   supportedGenomes <- c("hg38", "hg19", "mm10", "tair10", "rhos")
   stopifnot(options$genomeName %in% supportedGenomes)
 
-  printf("--- ~/github/igvShinyFork/R/igvShinyFork ctor");
+  printf("--- ~/github/igvShiny/R/igvShiny ctor");
 
   htmlwidgets::createWidget(
-    name = 'igvShinyFork',
+    name = 'igvShiny',
     options,
     width = width,
     height = height,
-    package = 'igvShinyFork',
+    package = 'igvShiny',
     elementId = elementId
     )
 
-} # igvShinyFork constructor
+} # igvShiny constructor
 #----------------------------------------------------------------------------------------------------
-igvShinyForkOutput <- function(outputId, width = '100%', height = '400px')
+igvShinyOutput <- function(outputId, width = '100%', height = '400px')
 {
-  htmlwidgets::shinyWidgetOutput(outputId, 'igvShinyFork', width, height, package = 'igvShinyFork')
+  htmlwidgets::shinyWidgetOutput(outputId, 'igvShiny', width, height, package = 'igvShiny')
 }
 #----------------------------------------------------------------------------------------------------
-renderIgvShinyFork <- function(expr, env = parent.frame(), quoted = FALSE)
+renderIgvShiny <- function(expr, env = parent.frame(), quoted = FALSE)
 {
    if (!quoted){
       expr <- substitute(expr)
       } # force quoted
 
-  htmlwidgets::shinyRenderWidget(expr, igvShinyForkOutput, env, quoted = TRUE)
+  htmlwidgets::shinyRenderWidget(expr, igvShinyOutput, env, quoted = TRUE)
 
 }
 #----------------------------------------------------------------------------------------------------
@@ -76,7 +76,7 @@ removeUserAddedTracks <- function(session)
 loadBedTrack <- function(session, trackName, tbl, color="gray", trackHeight=50, deleteTracksOfSameName=TRUE, quiet=TRUE)
 {
    if(!quiet){
-      printf("--- igvShinyFork::loadBedTrack");
+      printf("--- igvShiny::loadBedTrack");
       print(dim(tbl))
       print(head(tbl))
       print(unlist(lapply(tbl, class)))
@@ -116,7 +116,7 @@ loadBedGraphTrack <- function(session, trackName, tbl, color="gray", trackHeight
    stopifnot(ncol(tbl) >= 4)
 
    if(!quiet){
-      printf("--- igvShinyFork::loadBedGraphTrack");
+      printf("--- igvShiny::loadBedGraphTrack");
       printf("    %d rows, %d columns", nrow(tbl), ncol(tbl))
       printf("    colnames: %s", paste(colnames(tbl), collapse=", "))
       printf("    col classes: %s", paste(unlist(lapply(tbl, class)), collapse=", "))
