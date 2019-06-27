@@ -30,7 +30,7 @@ igvShinyForkOutput <- function(outputId, width = '100%', height = '400px')
   htmlwidgets::shinyWidgetOutput(outputId, 'igvShinyFork', width, height, package = 'igvShinyFork')
 }
 #----------------------------------------------------------------------------------------------------
-renderIgvShiny <- function(expr, env = parent.frame(), quoted = FALSE)
+renderIgvShinyFork <- function(expr, env = parent.frame(), quoted = FALSE)
 {
    if (!quoted){
       expr <- substitute(expr)
