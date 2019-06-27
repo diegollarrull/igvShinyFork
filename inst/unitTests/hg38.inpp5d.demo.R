@@ -1,5 +1,5 @@
 library(shiny)
-library(igvShiny)
+library(igvShinyFork)
 library(htmlwidgets)
 library(VariantAnnotation)
 #----------------------------------------------------------------------------------------------------
@@ -19,7 +19,7 @@ ui = shinyUI(fluidPage(
         width=2
         ),
      mainPanel(
-        igvShinyOutput('igvShiny'),
+        igvShinyForkOutput('igvShinyFork'),
         width=10
         )
      ) # sidebarLayout
@@ -45,7 +45,7 @@ server = function(input, output, session) {
       loadBedTrack(session, "bed", tbl.bed, color="green");
       loadBedGraphTrack(session, "wig", tbl.bed, color="blue", autoscale=TRUE)
       loadSegTrack(session, "seg", tbl.bed)
-      vcfData <- readVcf(system.file(package="igvShiny", "extdata", "inpp5d.fragment.vcf"))
+      vcfData <- readVcf(system.file(package="igvShinyFork", "extdata", "inpp5d.fragment.vcf"))
       loadVcfTrack(session, "vcf", vcfData)
       })
 
@@ -64,8 +64,8 @@ server = function(input, output, session) {
 
    output$value <- renderPrint({ input$action })
 
-   output$igvShiny <- renderIgvShiny(
-     igvShiny(list(
+   output$igvShinyFork <- renderIgvShiny(
+     igvShinyFork(list(
         genomeName="hg38",
         initialLocus="INPP5D",
         displayMode="EXPANDED",

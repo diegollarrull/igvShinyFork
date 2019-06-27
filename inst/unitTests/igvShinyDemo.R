@@ -1,5 +1,5 @@
 library(shiny)
-library(igvShiny)
+library(igvShinyFork)
 library(htmlwidgets)
 #----------------------------------------------------------------------------------------------------
 addResourcePath("tracks", "tracks")
@@ -18,8 +18,8 @@ ui = shinyUI(fluidPage(
         width=2
         ),
      mainPanel(
-        igvShinyOutput('igvShiny.0'),
-        # igvShinyOutput('igvShiny.1'),
+        igvShinyForkOutput('igvShinyFork.0'),
+        # igvShinyForkOutput('igvShinyFork.1'),
         width=10
         )
      ) # sidebarLayout
@@ -66,16 +66,16 @@ server = function(input, output, session) {
    loci <- c("chr5:88,466,402-89,135,305", "MEF2C", "Mef2c", "1:7,432,931-7,440,395", "NC_007494.2:370,757-378,078")
    i <- 4
 
-   output$igvShiny.0 <- renderIgvShiny(
-     igvShiny(list(
+   output$igvShinyFork.0 <- renderIgvShiny(
+     igvShinyFork(list(
         genomeName=genomes[i],
         initialLocus=loci[i],
         displayMode="SQUISHED"
         ))
       )
 
-   #output$igvShiny.1 <- renderIgvShiny(
-   #  igvShiny(list(
+   #output$igvShinyFork.1 <- renderIgvShiny(
+   #  igvShinyFork(list(
    #     genomeName="hg38",
    #     initialLocus="chr2:232,983,999-233,283,872"
    #     ))
