@@ -335,7 +335,6 @@ Shiny.addCustomMessageHandler("loadVcfTrack",
       var trackName = message.trackName;
       var vcfFile = message.vcfDataFilepath;
       var dataURL = window.location.href + message.vcfDataFilepath;
-      console.log("dataURL: " + dataURL);
 
       var config = {format: "vcf",
                      name: trackName,
@@ -368,10 +367,6 @@ Shiny.addCustomMessageHandler("loadBamTrack",
       var trackName = message.trackName;
       var bamFile = message.bamFilePath;
       var baiFile = message.baiFilePath;
-
-      console.log("trackName: " + trackName);
-      console.log("bamFile: " + bamFile);
-      console.log("baiFile: " + baiFile);
 
       var config = {format: "bam",
                      name: trackName,
