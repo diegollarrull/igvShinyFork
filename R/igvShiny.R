@@ -178,6 +178,8 @@ loadVcfTrack <- function(session, trackName, vcfData, deleteTracksOfSameName=TRU
    path <- file.path("tracks", "tmp.vcf")
    writeVcf(vcfData, path)
 
+   message <- list(trackName=trackName, vcfDataFilepath=path)
+   session$sendCustomMessage("loadVcfTrack", message)
 
 } # loadVcfTrack
 #------------------------------------------------------------------------------------------------------------------------
@@ -189,6 +191,9 @@ loadBamTrack <- function(session, trackName, bamData, baiData, deleteTracksOfSam
    
    state[["userAddedTracks"]] <- unique(c(state[["userAddedTracks"]], trackName))
    
+   
+   message <- list(trackName=trackName, bamFilePath=bamData, baiFilePath=baiData)
+   session$sendCustomMessage("loadBamTrack", message)
    
 } # loadBamTrack
 #------------------------------------------------------------------------------------------------------------------------
