@@ -17,7 +17,7 @@ HTMLWidgets.widget({
           console.log(options)
           var igvDiv;
           igvDiv = el; // $("#igvDiv")[0];
-          var fullOptions = genomeSpecificOptions(options.genomeName, options.initialLocus,
+            var fullOptions = genomeSpecificOptions(options.genomeName, options.initialLocus,
                                                   options.displayMode, options.trackHeight)
 
          igv.createBrowser(igvDiv, fullOptions)
@@ -67,7 +67,7 @@ function genomeSpecificOptions(genomeName, initialLocus, displayMode, trackHeigh
     flanking: 1000,
     showRuler: true,
     minimumBases: 5,
-
+     genome: "hg19",
      reference: {id: "hg19"},
      tracks: [
         {name: 'Gencode v18',
