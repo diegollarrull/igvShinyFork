@@ -229,7 +229,7 @@ loadGwasTrack <- function(session, id, trackName, tbl.gwas, deleteTracksOfSameNa
 loadBamTrack <- function(session, id, trackName, bamData, baiData, deleteTracksOfSameName=TRUE)
 {
    if(deleteTracksOfSameName){
-      removeTracksByName(session, trackName);
+      removeTracksByName(session, id, trackName);
    }
    
    state[["userAddedTracks"]] <- unique(c(state[["userAddedTracks"]], trackName))
@@ -243,7 +243,7 @@ loadBamTrack <- function(session, id, trackName, bamData, baiData, deleteTracksO
 loadCramTrack <- function(session, id, trackName, cramData, craiData, deleteTracksOfSameName=TRUE)
 {
    if(deleteTracksOfSameName){
-      removeTracksByName(session, trackName);
+      removeTracksByName(session, id, trackName);
    }
    
    state[["userAddedTracks"]] <- unique(c(state[["userAddedTracks"]], trackName))
