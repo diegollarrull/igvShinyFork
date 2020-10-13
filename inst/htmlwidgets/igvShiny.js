@@ -279,6 +279,65 @@ Shiny.addCustomMessageHandler("loadBedTrack",
 
 );
 //------------------------------------------------------------------------------------------------------------------------
+Shiny.addCustomMessageHandler("loadBamTrack",
+
+   function(message){
+      console.log("=== loadBamTrack");
+      console.log(message)
+      var elementID = message.elementID;
+      var igvBrowser = document.getElementById(elementID).igvBrowser;
+      var trackName = message.trackName;
+      var bamFile = message.bamFilePath;
+      var baiFile = message.baiFilePath;
+
+      var config = {format: "bam",
+                    name: trackName,
+                    url: bamFile,
+                    indexURL: baiFile,
+                    type: "alignment"
+                    /*order: Number.MAX_VALUE,
+                    features: tbl,
+                    indexed: false,
+                    displayMode: "EXPANDED",
+                    color: color,
+                    height: trackHeight*/
+                    };
+      igvBrowser.loadTrack(config);
+      }
+
+
+);
+//------------------------------------------------------------------------------------------------------------------------
+Shiny.addCustomMessageHandler("loadCramTrack",
+
+   function(message){
+      console.log("=== loadCramTrack");
+      console.log(message)
+      var elementID = message.elementID;
+      var igvBrowser = document.getElementById(elementID).igvBrowser;
+      var trackName = message.trackName;
+      var bamFile = message.cramFilePath;
+      var baiFile = message.craiFilePath;
+
+      var config = {format: "bam",
+                    name: trackName,
+                    url: cramFile,
+                    indexURL: craiFile,
+                    type: "alignment"
+                    /*order: Number.MAX_VALUE,
+                    features: tbl,
+                    indexed: false,
+                    displayMode: "EXPANDED",
+                    color: color,
+                    height: trackHeight*/
+                    };
+      igvBrowser.loadTrack(config);
+      }
+
+
+
+);
+//------------------------------------------------------------------------------------------------------------------------
 Shiny.addCustomMessageHandler("loadBedGraphTrack",
 
    function(message){
