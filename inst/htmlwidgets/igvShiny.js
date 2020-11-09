@@ -316,10 +316,10 @@ Shiny.addCustomMessageHandler("loadCramTrack",
       var elementID = message.elementID;
       var igvBrowser = document.getElementById(elementID).igvBrowser;
       var trackName = message.trackName;
-      var bamFile = message.cramFilePath;
-      var baiFile = message.craiFilePath;
+      var cramFile = message.cramFilePath;
+      var craiFile = message.craiFilePath;
 
-      var config = {format: "bam",
+      var config = {format: "cram",
                     name: trackName,
                     url: cramFile,
                     indexURL: craiFile,
