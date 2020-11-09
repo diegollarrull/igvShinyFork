@@ -9,7 +9,9 @@ export(
    loadSegTrack,
    loadVcfTrack,
    loadBamTrack,
+   loadCramTrack,
    removeTracksByName,
    removeUserAddedTracks,
    redrawIgvWidget
    )
+
