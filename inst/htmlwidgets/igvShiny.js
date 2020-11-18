@@ -45,7 +45,7 @@ HTMLWidgets.widget({
                    Shiny.setInputValue("igv-trackClick", x, {priority: "event"})
                        // for use outside of the ShinyModule idiom
                    Shiny.setInputValue("trackClick", x, {priority: "event"})
-                   return false; // undefined causes follow on display of standard popup
+                   return true; // undefined causes follow on display of standard popup
                    }); // on
                 }); // then: promise fulflled
           },
